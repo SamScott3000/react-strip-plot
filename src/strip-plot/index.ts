@@ -1,1 +1,1 @@
-export { StripPlot } from "./ReactStripPlot";
+export { StripPlot } from "./StripPlot";

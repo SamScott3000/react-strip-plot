@@ -1,21 +1,111 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "node": true
   },
-  "extends": ["plugin:react/recommended", "standard-with-typescript"],
+  "root": true,
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "airbnb",
+    "airbnb/hooks"
+  ],
   "overrides": [],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-
-  "plugins": ["react"],
+  "plugins": ["react", "@typescript-eslint", "simple-import-sort"],
   "rules": {
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-unused-vars": "error",
+    "no-unused-vars": "off",
+    "comma-dangle": 0,
+    "import/imports-first": 0,
+    "import/no-unresolved": 0,
+    "global-require": 0,
+    "class-methods-use-this": 0,
+    "implicit-arrow-linebreak": 0,
+    "import/prefer-default-export": 0,
+    "import/extensions": 0,
+    "operator-linebreak": [
+      "error",
+      "after",
+      {
+        "overrides": {
+          "?": "ignore",
+          ":": "ignore"
+        }
+      }
+    ],
+    "arrow-body-style": [2, "as-needed"],
+    "arrow-parens": ["error", "always"],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
+    "strict": 0,
+    "no-param-reassign": [
+      "error",
+      {
+        "props": false
+      }
+    ],
+    "function-paren-newline": 0,
+    "no-underscore-dangle": 0,
+    "no-use-before-define": 0,
+    "eol-last": 0,
+    "no-shadow": 0,
+    "quotes": [
+      2,
+      "double",
+      {
+        "allowTemplateLiterals": true
+      }
+    ],
+    "jsx-quotes": [0, "prefer-double"],
+    "no-debugger": 0,
+    "dot-notation": 0,
+    "no-console": 0,
+    "new-cap": 0,
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": ["block", "block-like", "const", "let"],
+        "next": "return"
+      }
+    ],
+    "react/jsx-key": ["error", { "checkFragmentShorthand": true }],
+    "react/react-in-jsx-scope": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".ts"] }],
+    "react/prop-types": 0,
+    "react/jsx-no-undef": 1,
+    "react/jsx-uses-react": 1,
+    "react/button-has-type": 0,
+    "react/jsx-uses-vars": 1,
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "@typescript-eslint/no-non-null-assertion": "off",
-    "@typescript-eslint/ban-ts-comment": "off",
-    "@typescript-eslint/no-explicit-any": "error"
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "react/function-component-definition": [0],
+    "react/jsx-one-expression-per-line": [0],
+    "react/require-default-props": [0],
+    "object-curly-newline": "off",
+    "jsx-a11y/label-has-associated-control": [
+      2,
+      {
+        "labelComponents": ["CustomInputLabel"],
+        "labelAttributes": ["label"],
+        "controlComponents": ["CustomInput"],
+        "depth": 3
+      }
+    ]
   }
 }
