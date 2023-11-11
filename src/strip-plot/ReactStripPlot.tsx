@@ -1,9 +1,5 @@
 import React from "react";
 
-interface ReactStripPlotProps {
-  foo: any;
-}
-
-export const StripPlot = () => {
+export const StripPlot = ({ x }: any) => {
   return <div>ReactStripPlot</div>;
 };

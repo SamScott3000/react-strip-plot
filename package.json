@@ -7,17 +7,21 @@
   },
   "devDependencies": {
     "@types/react": "^18.2.37",
-    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
     "@typescript-eslint/parser": "^6.10.0",
     "eslint": "^8.53.0",
     "eslint-config-prettier": "^9.0.0",
+    "eslint-config-standard-with-typescript": "^39.1.1",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
     "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^3.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "typescript": "^5.2.2"
+    "typescript": "*"
   },
   "eslintConfig": {
     "root": true,
@@ -38,7 +42,7 @@
       "react-hooks/exhaustive-deps": "warn",
       "@typescript-eslint/no-non-null-assertion": "off",
       "@typescript-eslint/ban-ts-comment": "off",
-      "@typescript-eslint/no-explicit-any": "warn"
+      "@typescript-eslint/no-explicit-any": "error"
     },
     "settings": {
       "react": {
