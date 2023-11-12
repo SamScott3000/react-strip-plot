@@ -10,7 +10,8 @@
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "airbnb",
-    "airbnb/hooks"
+    "airbnb/hooks",
+    "plugin:storybook/recommended"
   ],
   "overrides": [],
   "parser": "@typescript-eslint/parser",
@@ -18,7 +19,11 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint", "simple-import-sort"],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "simple-import-sort"
+  ],
   "rules": {
     "@typescript-eslint/no-explicit-any": "warn",
     "@typescript-eslint/no-unused-vars": "error",
@@ -41,8 +46,14 @@
         }
       }
     ],
-    "arrow-body-style": [2, "as-needed"],
-    "arrow-parens": ["error", "always"],
+    "arrow-body-style": [
+      2,
+      "as-needed"
+    ],
+    "arrow-parens": [
+      "error",
+      "always"
+    ],
     "import/no-extraneous-dependencies": [
       "error",
       {
@@ -68,7 +79,10 @@
         "allowTemplateLiterals": true
       }
     ],
-    "jsx-quotes": [0, "prefer-double"],
+    "jsx-quotes": [
+      0,
+      "prefer-double"
+    ],
     "no-debugger": 0,
     "dot-notation": 0,
     "no-console": 0,
@@ -77,14 +91,32 @@
       "error",
       {
         "blankLine": "always",
-        "prev": ["block", "block-like", "const", "let"],
+        "prev": [
+          "block",
+          "block-like",
+          "const",
+          "let"
+        ],
         "next": "return"
       }
     ],
-    "react/jsx-key": ["error", { "checkFragmentShorthand": true }],
+    "react/jsx-key": [
+      "error",
+      {
+        "checkFragmentShorthand": true
+      }
+    ],
     "react/react-in-jsx-scope": 0,
     "react/jsx-props-no-spreading": 0,
-    "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".ts"] }],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".tsx",
+          ".ts"
+        ]
+      }
+    ],
     "react/prop-types": 0,
     "react/jsx-no-undef": 1,
     "react/jsx-uses-react": 1,
@@ -94,16 +126,28 @@
     "react-hooks/exhaustive-deps": "warn",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
-    "react/function-component-definition": [0],
-    "react/jsx-one-expression-per-line": [0],
-    "react/require-default-props": [0],
+    "react/function-component-definition": [
+      0
+    ],
+    "react/jsx-one-expression-per-line": [
+      0
+    ],
+    "react/require-default-props": [
+      0
+    ],
     "object-curly-newline": "off",
     "jsx-a11y/label-has-associated-control": [
       2,
       {
-        "labelComponents": ["CustomInputLabel"],
-        "labelAttributes": ["label"],
-        "controlComponents": ["CustomInput"],
+        "labelComponents": [
+          "CustomInputLabel"
+        ],
+        "labelAttributes": [
+          "label"
+        ],
+        "controlComponents": [
+          "CustomInput"
+        ],
         "depth": 3
       }
     ]
