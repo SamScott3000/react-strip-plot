@@ -1,9 +1,17 @@
 import type * as Polymorphic from "@radix-ui/react-polymorphic";
-import React, { SVGAttributes, SVGLineElementAttributes } from "react";
+import React, {
+  createContext,
+  SVGAttributes,
+  SVGLineElementAttributes,
+  useMemo,
+} from "react";
+
+import { getPositionValue } from "./StripPlot.utils";
 
 /**
  * Strip Plot Component
  */
+
 interface StripPlotProps extends SVGAttributes<SVGSVGElement> {
   /**
    * The orientation of the strip plot.
@@ -12,27 +20,59 @@ interface StripPlotProps extends SVGAttributes<SVGSVGElement> {
   orientation?: "horizontal" | "vertical";
 
   /**
-   * The width of the strip plot.
    * @default "100%"
    */
   width?: string | number;
+
+  /**
+   * The range of the strip plot.
+   * @default [0, 100]
+   */
+  range?: [number, number];
+
+  /**
+   * A scale function that maps a value to a position based on the `range`.
+   * @default (value) => value
+   */
+  scaleFunction?: (value: number) => number;
 }
+
+const StripPlotContext = createContext<
+  Required<Pick<StripPlotProps, "range" | "orientation" | "scaleFunction">>
+>({
+  range: [0, 100],
+  orientation: "horizontal",
+  scaleFunction: (v) => v,
+});
 
 const StripPlot = React.forwardRef(
   (props: StripPlotProps, forwardedRef: React.Ref<SVGSVGElement>) => {
     const {
       orientation = "horizontal",
       width = "100%",
+      height = "1px",
+      range = [0, 100],
+      scaleFunction = (v) => v,
+      overflow = "visible",
       ...stripPlotProps
     } = props;
 
+    const state = useMemo(
+      () => ({ orientation, range, scaleFunction }),
+      [orientation, range, scaleFunction]
+    );
+
     return (
-      <svg
-        data-orientation={orientation}
-        width={width}
-        {...stripPlotProps}
-        ref={forwardedRef}
-      />
+      <StripPlotContext.Provider value={state}>
+        <svg
+          data-orientation={orientation}
+          width={width}
+          height={height}
+          overflow={overflow}
+          {...stripPlotProps}
+          ref={forwardedRef}
+        />
+      </StripPlotContext.Provider>
     );
   }
 );
@@ -83,11 +123,14 @@ const StripPlotAxis = React.forwardRef(
 );
 
 /**
- * Axis Component
+ * Datapoint Component
  */
 
+export type DataPointComponent = "circle" | "line" | "rect" | "path";
+
 interface StripPlotDatapointProps {
-  as?: "circle" | "line" | "rect" | "path";
+  as?: DataPointComponent;
+  value?: number;
 }
 
 type PolymorphicDatapoint = Polymorphic.ForwardRefComponent<
@@ -96,9 +139,39 @@ type PolymorphicDatapoint = Polymorphic.ForwardRefComponent<
 >;
 
 const StripPlotDatapoint = React.forwardRef((props, forwardedRef) => {
-  const { as: Component = "circle", ...stripPlotDatapointProps } = props;
+  const {
+    as: Component = "circle",
+    value = 0,
+    children,
+    ...stripPlotDatapointProps
+  } = props;
 
-  return <Component {...stripPlotDatapointProps} ref={forwardedRef} />;
+  const { range, orientation, scaleFunction } =
+    React.useContext(StripPlotContext);
+
+  const [min, max] = useMemo(
+    () => range.map((v) => scaleFunction && scaleFunction(v)),
+    [range, scaleFunction]
+  );
+
+  const scaledValue = useMemo(
+    () => ((scaleFunction(value) - min) / (max - min)) * 100,
+    [scaleFunction, value, min, max]
+  );
+
+  const positionValue = getPositionValue(scaledValue, Component, orientation);
+
+  return (
+    <g>
+      {children}
+      <Component
+        {...positionValue}
+        data-orientation={orientation}
+        {...stripPlotDatapointProps}
+        ref={forwardedRef}
+      />
+    </g>
+  );
 }) as PolymorphicDatapoint;
 
 const Root = StripPlot;
