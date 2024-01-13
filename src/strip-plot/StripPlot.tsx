@@ -104,14 +104,19 @@ const StripPlotAxis = React.forwardRef(
     const {
       x1 = "0%",
       x2 = "100%",
+      y1 = "0%",
+      y2 = "100%",
       stroke = "black",
       ...stripPlotAxisProps
     } = props;
 
+    const { orientation } = React.useContext(StripPlotContext);
+
+    const coordinates = orientation === "horizontal" ? { x1, x2 } : { y1, y2 };
+
     return (
       <line
-        x1={x1}
-        x2={x2}
+        {...coordinates}
         stroke={stroke}
         {...stripPlotAxisProps}
         ref={forwardedRef}
@@ -125,6 +130,10 @@ const StripPlotAxis = React.forwardRef(
  */
 
 interface StripPlotDatapointProps extends SVGAttributes<SVGGElement> {
+  /**
+   * The value of the datapoint.
+   * @default 0
+   */
   value?: number;
 }
 
