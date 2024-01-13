@@ -14,6 +14,9 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "outDir": "./dist",
+    "declaration": true,
+
     "paths": {
       "@/*": ["./*"]
     }

@@ -1,0 +1,14 @@
+*.log
+.DS_Store
+node_modules
+dist
+test-output.*
+.cache
+.parcel-cache
+storybook-static
+.env
+.eslintcache
+
+# Editor-specific
+.vscode
+.idea
