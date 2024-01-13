@@ -182,4 +182,4 @@ export {
   StripPlotDatapoint,
 };
 
-export type { StripPlotAxisProps, StripPlotDatapointProps, StripPlotProps };
+export type { StripPlotProps, StripPlotAxisProps, StripPlotDatapointProps };

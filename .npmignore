@@ -1,14 +1,28 @@
 *.log
 .DS_Store
 node_modules
-dist
+src
+
 test-output.*
 .cache
 .parcel-cache
 storybook-static
 .env
+.storybook
+.editorConfig
+
+.storybook
+.gitattributes
+
+.eslintignore
+.eslintrc.json
 .eslintcache
+
+.prettierrc
+tsconfig.json
+tsconfig.tsbuildinfo
 
 # Editor-specific
 .vscode
 .idea
+.yarn

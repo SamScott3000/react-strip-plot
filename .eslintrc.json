@@ -103,8 +103,6 @@
     "react/jsx-uses-vars": 1,
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error",
     "react/function-component-definition": [0],
     "react/jsx-one-expression-per-line": [0],
     "react/require-default-props": [0],

@@ -1,3 +1,5 @@
+import React from "react";
+
 import * as StripPlot from "./StripPlot";
 
 export default { title: "Components/StripPlot" };

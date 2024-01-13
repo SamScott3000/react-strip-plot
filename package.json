@@ -1,8 +1,9 @@
 {
   "name": "@datum-ui/react-strip-plot",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "packageManager": "yarn@4.0.1",
+  "type": "module",
   "exports": {
     ".": {
       "import": {
@@ -17,7 +18,7 @@
   },
   "source": "./src/index.ts",
   "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc",

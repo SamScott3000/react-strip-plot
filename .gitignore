@@ -8,7 +8,9 @@ test-output.*
 storybook-static
 .env
 .eslintcache
+tsconfig.tsbuildinfo
 
 # Editor-specific
 .vscode
 .idea
+.yarn
