@@ -1,5 +1,8 @@
 {
-  "name": "react-strip-plot",
+  "name": "@datum-ui/react-strip-plot",
+  "version": "0.1.0",
+  "license": "MIT",
+  "source": "./src/index.ts",
   "packageManager": "yarn@4.0.1",
   "scripts": {
     "build": "tsc",
@@ -40,8 +43,5 @@
     "storybook": "^7.5.3",
     "typescript": "*",
     "vite": "^5.0.11"
-  },
-  "dependencies": {
-    "@radix-ui/react-polymorphic": "^0.0.14"
   }
 }

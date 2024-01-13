@@ -7,7 +7,6 @@ const Datapoints = () => (
     <StripPlot.Datapoint value={20} opacity={0.5} r="5px" fill="red">
       <circle r="5" fill="red" />
     </StripPlot.Datapoint>
-
     <StripPlot.Datapoint value={0} opacity={0.5} r="5px" fill="red">
       <circle r="5" fill="red" />
     </StripPlot.Datapoint>
