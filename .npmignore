@@ -4,6 +4,9 @@ node_modules
 src
 .yarnrc.yml
 
+# Stories
+*.stories.*
+
 test-output.*
 .cache
 .parcel-cache
