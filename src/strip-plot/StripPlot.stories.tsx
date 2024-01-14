@@ -23,21 +23,26 @@ const Datapoints = () => (
 
 export const Default = () => (
   <StripPlot.Root range={[0, 100]}>
-    <StripPlot.Axis />
+    <StripPlot.Axis stroke="black" />
     <Datapoints />
   </StripPlot.Root>
 );
 
 export const Line = () => (
   <StripPlot.Root range={[0, 100]}>
-    <StripPlot.Axis />
+    <StripPlot.Axis stroke="black" />
     <Datapoints />
   </StripPlot.Root>
 );
 
 export const Vertical = () => (
-  <StripPlot.Root height="200px" range={[0, 100]} orientation="vertical">
-    <StripPlot.Axis />
+  <StripPlot.Root
+    stroke="black"
+    height="200px"
+    range={[0, 100]}
+    orientation="vertical"
+  >
+    <StripPlot.Axis stroke="black" />
     <Datapoints />
   </StripPlot.Root>
 );

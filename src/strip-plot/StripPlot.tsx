@@ -18,11 +18,6 @@ interface StripPlotProps extends SVGAttributes<SVGSVGElement> {
   orientation?: "horizontal" | "vertical";
 
   /**
-   * @default "100%"
-   */
-  width?: string | number;
-
-  /**
    * The range of the strip plot.
    * @default [0, 100]
    */
@@ -64,8 +59,8 @@ const StripPlot = React.forwardRef(
       <StripPlotContext.Provider value={state}>
         <svg
           data-orientation={orientation}
-          width={width}
           height={height}
+          width={width}
           overflow={overflow}
           {...stripPlotProps}
           ref={forwardedRef}
@@ -81,47 +76,30 @@ const StripPlot = React.forwardRef(
 
 interface StripPlotAxisProps extends SVGLineElementAttributes<SVGLineElement> {
   /**
-   * The starting x coordinate of the axis.
+   * The starting coordinate of the axis.
    * @default "0%"
    */
-  x1?: string | number;
+  start?: string | number;
 
   /**
-   * The ending x coordinate of the axis.
+   * The ending coordinate of the axis.
    * @default "100%"
    */
-  x2?: string | number;
-
-  /**
-   * The color of the axis.
-   * @default "black"
-   */
-  stroke?: string;
+  end?: string | number;
 }
 
 const StripPlotAxis = React.forwardRef(
   (props: StripPlotAxisProps, forwardedRef: React.Ref<SVGLineElement>) => {
-    const {
-      x1 = "0%",
-      x2 = "100%",
-      y1 = "0%",
-      y2 = "100%",
-      stroke = "black",
-      ...stripPlotAxisProps
-    } = props;
+    const { start = "0%", end = "100%", ...stripPlotAxisProps } = props;
 
     const { orientation } = React.useContext(StripPlotContext);
 
-    const coordinates = orientation === "horizontal" ? { x1, x2 } : { y1, y2 };
+    const coordinates =
+      orientation === "horizontal"
+        ? { x1: start, x2: end }
+        : { y1: start, y2: end };
 
-    return (
-      <line
-        {...coordinates}
-        stroke={stroke}
-        {...stripPlotAxisProps}
-        ref={forwardedRef}
-      />
-    );
+    return <line {...coordinates} {...stripPlotAxisProps} ref={forwardedRef} />;
   }
 );
 
