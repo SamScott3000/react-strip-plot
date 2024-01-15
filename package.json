@@ -1,6 +1,6 @@
 {
   "name": "@datum-ui/react-strip-plot",
-  "version": "0.1.3",
+  "version": "0.2.1",
   "license": "MIT",
   "packageManager": "yarn@4.0.1",
   "type": "module",

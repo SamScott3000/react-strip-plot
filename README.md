@@ -5,11 +5,11 @@ A react strip plot implementation in the style of [Radix Primitives](https://git
 ## Installation
 
 ```shell
-yarn add @radix-ui/react-accordion
+yarn add @datum-ui/react-strip-plot
 
 # or
 
-npm install @radix-ui/react-accordion
+npm install @datum-ui/react-strip-plot
 ```
 
 ## Usage
